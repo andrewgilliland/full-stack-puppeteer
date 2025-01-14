@@ -5,9 +5,15 @@ function App() {
   // Return PDF file
   // Display PDF file in browser
 
+  const getData = async () => {
+    const response = await fetch("http://localhost:3000");
+    const data = await response.json();
+    console.log(data);
+  };
+
   return (
     <div>
-      <button>View PDF</button>
+      <button onClick={async () => await getData()}>View PDF</button>
     </div>
   );
 }
