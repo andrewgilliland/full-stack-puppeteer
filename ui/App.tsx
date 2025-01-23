@@ -30,11 +30,9 @@ function App() {
         <div
           style={{ marginTop: 32, display: "flex", flexDirection: "column" }}
         >
-          <button>
-            <a href={pdf} download="file.pdf">
-              Download PDF
-            </a>
-          </button>
+          <a href={pdf} download="file.pdf">
+            <button style={{ width: "100%" }}>Download PDF</button>
+          </a>
           <img
             style={{ border: "1px solid red", marginTop: 16 }}
             src={pdf}
