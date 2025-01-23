@@ -1,19 +1,22 @@
+import { useState } from "react";
 import "./App.css";
+import { getPDF } from "./utils";
 
 function App() {
-  // Make Fetch Request from Fastify Server API endpoint
-  // Return PDF file
-  // Display PDF file in browser
-
-  const getData = async () => {
-    const response = await fetch("http://localhost:3000");
-    const data = await response.json();
-    console.log(data);
-  };
+  const [loading, setLoading] = useState(false);
 
   return (
     <div>
-      <button onClick={async () => await getData()}>View PDF</button>
+      <button
+        disabled={loading}
+        onClick={async () => {
+          setLoading(true);
+          await getPDF();
+          setLoading(false);
+        }}
+      >
+        {loading ? "Loading..." : "Generate PDF"}
+      </button>
     </div>
   );
 }
