@@ -1,43 +1,33 @@
-import { useEffect, useState } from "react";
-import "./App.css";
+import { useState } from "react";
 import { getPDF } from "./utils";
 
 function App() {
   const [loading, setLoading] = useState(false);
-  const [pdf, setPDF] = useState("");
-
-  useEffect(() => {
-    console.log("pdf: ", pdf);
-  }, [pdf]);
+  const [dataURL, setDataURL] = useState("");
 
   return (
     <div>
-      <button
-        disabled={loading}
-        onClick={async () => {
-          setLoading(true);
-          const result = await getPDF();
+      <div style={{ display: "flex", justifyContent: "center", marginTop: 32 }}>
+        <button
+          disabled={loading}
+          onClick={async () => {
+            setLoading(true);
+            setDataURL(await getPDF());
+            setLoading(false);
+          }}
+        >
+          {loading ? "Loading..." : "Generate PDF"}
+        </button>
+      </div>
 
-          setPDF(result);
-
-          setLoading(false);
-        }}
-      >
-        {loading ? "Loading..." : "Generate PDF"}
-      </button>
-
-      {pdf && (
+      {dataURL && (
         <div
           style={{ marginTop: 32, display: "flex", flexDirection: "column" }}
         >
-          <a href={pdf} download="file.pdf">
-            <button style={{ width: "100%" }}>Download PDF</button>
-          </a>
-          <img
-            style={{ border: "1px solid red", marginTop: 16 }}
-            src={pdf}
-            width="250"
-            height="200"
+          <iframe
+            title="PDF Viewer"
+            src={dataURL}
+            style={{ width: "100%", height: "100vh", marginTop: 16 }}
           />
         </div>
       )}

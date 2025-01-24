@@ -1,16 +1,6 @@
 import puppeteer from "puppeteer";
 
-// export const getScreenshot = async (url: string) => {
-//   const browser = await puppeteer.launch();
-//   const page = await browser.newPage();
-//   await page.goto(url);
-//   const screenshot = await page.screenshot();
-//   await browser.close();
-//   return screenshot;
-// };
-
 export const getPDF = async (url: string) => {
-  console.log("Request received");
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto(url);

@@ -1,7 +1,6 @@
 import Fastify from "fastify";
 import cors from "@fastify/cors";
 import puppeteer from "puppeteer";
-// import { getPDF } from "./puppeteer";
 
 export const getPDF = async (url: string) => {
   console.log("Request received");
