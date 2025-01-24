@@ -7,5 +7,6 @@ export const getPDF = async (url: string) => {
   const pdf = await page.pdf();
   await browser.close();
   console.log("PDF generated");
+
   return pdf;
 };

@@ -7,7 +7,15 @@ export const getPDF = async (url: string) => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto(url);
+
+  const dom = await page.$eval("div.testimonials", (elemant) => {
+    return elemant.innerHTML;
+  });
+
+  await page.setContent(dom);
+
   const pdf = await page.pdf();
+
   await browser.close();
   console.log("PDF generated");
   return pdf;
