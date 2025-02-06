@@ -1,10 +1,15 @@
 import puppeteer from "puppeteer";
 import fs from "fs";
 
-const getHeaderTemplate = () => {
-  const html = fs.readFileSync("./api/puppeteer/header-template.html", "utf8");
+const base64Encode = (file: string) => {
+  return fs.readFileSync(file, { encoding: "base64" });
+};
 
-  console.log(html);
+const getHeaderTemplate = () => {
+  const logo = base64Encode("./public/logo_on_white.png");
+  const html = fs
+    .readFileSync("./api/puppeteer/header-template.html", "utf8")
+    .replace("{logo}", `data:image/png;base64, ${logo}`);
 
   return html;
 };
@@ -30,7 +35,5 @@ export const getPDF = async (url: string) => {
   });
 
   await browser.close();
-  console.log("PDF generated");
-
   return pdf;
 };
