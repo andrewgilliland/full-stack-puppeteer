@@ -7,11 +7,11 @@ function App() {
 
   return (
     <div>
+      <h2>Puppeteer</h2>
       <div
         style={{
           display: "flex",
           marginTop: 32,
-          border: "1px solid red",
         }}
       >
         <p style={{ flex: 1 }}>Page.pdf()</p>

@@ -7,34 +7,85 @@
     margin-left: 0.5in;
     margin-right: 0.5in;
     margin-top: 0.5in;
-    font-family: sans-serif;
   "
 >
   <style>
     div * {
       margin: 0;
       padding: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      background-color: rgb(234, 234, 234) !important;
+      print-color-adjust: exact !important;
+      -webkit-print-color-adjust: exact !important;
+      font-size: 14px;
+      margin-top: 12px;
+      padding-top: 6px;
+      padding-bottom: 6px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .grid-item-end {
+      place-self: end;
+      text-align: right;
+    }
+
+    .grid-item-title {
+      font-weight: bold;
+      font-size: 10px;
     }
   </style>
   <div style="display: flex; justify-content: space-between">
-    <div><img src="{logo}" alt="" style="width: 180px" /></div>
+    <div><img src="{logo}" alt="" style="width: 170px" /></div>
     <div style="text-align: center">
       <p style="font-size: 36px">Soil Report</p>
       <p style="font-size: 24px">[ Custom Report Name ]</p>
     </div>
-    <div style="font-size: 16px">
+    <div style="font-size: 12px">
       <p style="font-weight: bold">Radicle Agronomics</p>
       <p>23207 Townline Road</p>
       <p>Tremont IL 61568</p>
       <p>(309) 925-5050</p>
     </div>
   </div>
-  <div
-    style="display: grid; width: 100%; background-color: gray; font-size: 12px"
-  >
+  <div class="grid">
     <div>
-      <div>Client</div>
+      <div class="grid-item-title">Client</div>
       <div>Test</div>
+    </div>
+    <div>
+      <div class="grid-item-title">Job</div>
+      <div>Fall 2024</div>
+    </div>
+    <div>
+      <div class="grid-item-title">Area</div>
+      <div>221.75 acres</div>
+    </div>
+    <div class="grid-item-end">
+      <div class="grid-item-title">Date Collected</div>
+      <div>Nov 7, 2025</div>
+    </div>
+    <div>
+      <div class="grid-item-title">Farm/Operation</div>
+      <div>Test, Tremont IL</div>
+    </div>
+    <div>
+      <div class="grid-item-title">Field</div>
+      <div>Stuber</div>
+    </div>
+    <div>
+      <div class="grid-item-title">Lab</div>
+      <div>Lab 16</div>
+    </div>
+    <div class="grid-item-end">
+      <div class="grid-item-title">Date Analyzed</div>
+      <div>Nov 14, 2025</div>
     </div>
   </div>
 </div>

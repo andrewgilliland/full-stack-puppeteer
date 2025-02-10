@@ -27,7 +27,7 @@ const getFooterTemplate = () => {
   const html = fs
     .readFileSync("./api/puppeteer/footer-template.html", "utf8")
     .replace("{logo}", `data:image/png;base64, ${logo}`)
-    .replace("{dateNow}", formattedDate);
+    .replace("{dateCreated}", formattedDate);
 
   return html;
 };
@@ -45,8 +45,8 @@ export const getPDF = async (url: string) => {
     printBackground: true,
     format: "A4",
     margin: {
-      top: ".5in",
-      bottom: ".5in",
+      top: "2.5in",
+      bottom: "1.1in",
       left: ".5in",
       right: ".5in",
     },
