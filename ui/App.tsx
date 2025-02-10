@@ -7,8 +7,16 @@ function App() {
 
   return (
     <div>
-      <div style={{ display: "flex", justifyContent: "center", marginTop: 32 }}>
+      <div
+        style={{
+          display: "flex",
+          marginTop: 32,
+          border: "1px solid red",
+        }}
+      >
+        <p style={{ flex: 1 }}>Page.pdf()</p>
         <button
+          style={{ flex: 1 }}
           disabled={loading}
           onClick={async () => {
             setLoading(true);
@@ -18,6 +26,7 @@ function App() {
         >
           {loading ? "Loading..." : "Generate PDF"}
         </button>
+        <div style={{ flex: 1 }} />
       </div>
 
       {dataURL && (
