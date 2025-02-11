@@ -8,10 +8,30 @@ const base64Encode = (file: string) => {
 const logo = base64Encode("./public/logo_on_white.png");
 
 const getHeaderTemplate = () => {
-  const html = readFileSync(
-    "./api/puppeteer/header-template.html",
-    "utf8"
-  ).replace("{logo}", `data:image/png;base64, ${logo}`);
+  const html = readFileSync("./api/puppeteer/header-template.html", "utf8")
+    .replace("{logo}", `data:image/png;base64, ${logo}`)
+    .replace(
+      "{gridContent}",
+      [
+        "Client",
+        "Job",
+        "Area",
+        "Date Collected",
+        "Farm/Operation",
+        "Field",
+        "Lab",
+        "Date Analyzed",
+      ]
+        .map(
+          (header, index) => `<div style="${
+            (index + 1) % 4 ? "" : "place-self: end; text-align: right;"
+          }">
+      <div style="font-weight: bold; font-size: 10px;">${header}</div>
+      <div>${header}</div>
+      </div>`
+        )
+        .join("")
+    );
 
   return html;
 };

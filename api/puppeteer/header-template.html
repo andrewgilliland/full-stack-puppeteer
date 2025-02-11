@@ -30,16 +30,6 @@
       padding-left: 10px;
       padding-right: 10px;
     }
-
-    .grid-item-end {
-      place-self: end;
-      text-align: right;
-    }
-
-    .grid-item-title {
-      font-weight: bold;
-      font-size: 10px;
-    }
   </style>
   <div style="display: flex; justify-content: space-between">
     <div><img src="{logo}" alt="" style="width: 170px" /></div>
@@ -54,38 +44,5 @@
       <p>(309) 925-5050</p>
     </div>
   </div>
-  <div class="grid">
-    <div>
-      <div class="grid-item-title">Client</div>
-      <div>Test</div>
-    </div>
-    <div>
-      <div class="grid-item-title">Job</div>
-      <div>Fall 2024</div>
-    </div>
-    <div>
-      <div class="grid-item-title">Area</div>
-      <div>221.75 acres</div>
-    </div>
-    <div class="grid-item-end">
-      <div class="grid-item-title">Date Collected</div>
-      <div>Nov 7, 2025</div>
-    </div>
-    <div>
-      <div class="grid-item-title">Farm/Operation</div>
-      <div>Test, Tremont IL</div>
-    </div>
-    <div>
-      <div class="grid-item-title">Field</div>
-      <div>Stuber</div>
-    </div>
-    <div>
-      <div class="grid-item-title">Lab</div>
-      <div>Lab 16</div>
-    </div>
-    <div class="grid-item-end">
-      <div class="grid-item-title">Date Analyzed</div>
-      <div>Nov 14, 2025</div>
-    </div>
-  </div>
+  <div class="grid">{gridContent}</div>
 </div>
