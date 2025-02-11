@@ -1,21 +1,22 @@
 import puppeteer from "puppeteer";
-import fs from "fs";
+import { readFileSync } from "fs";
 
 const base64Encode = (file: string) => {
-  return fs.readFileSync(file, { encoding: "base64" });
+  return readFileSync(file, { encoding: "base64" });
 };
 
+const logo = base64Encode("./public/logo_on_white.png");
+
 const getHeaderTemplate = () => {
-  const logo = base64Encode("./public/logo_on_white.png");
-  const html = fs
-    .readFileSync("./api/puppeteer/header-template.html", "utf8")
-    .replace("{logo}", `data:image/png;base64, ${logo}`);
+  const html = readFileSync(
+    "./api/puppeteer/header-template.html",
+    "utf8"
+  ).replace("{logo}", `data:image/png;base64, ${logo}`);
 
   return html;
 };
 
 const getFooterTemplate = () => {
-  const logo = base64Encode("./public/logo_on_white.png");
   const formattedDate = new Date().toLocaleString("en-US", {
     month: "short",
     day: "numeric",
@@ -24,8 +25,7 @@ const getFooterTemplate = () => {
     minute: "numeric",
     hour12: true,
   });
-  const html = fs
-    .readFileSync("./api/puppeteer/footer-template.html", "utf8")
+  const html = readFileSync("./api/puppeteer/footer-template.html", "utf8")
     .replace("{logo}", `data:image/png;base64, ${logo}`)
     .replace("{dateCreated}", formattedDate);
 
